@@ -1,0 +1,27 @@
+$main-font: 'Montserrat', sans-serif;
+$title-font: 'Abhaya Libre', sans-serif;
+
+$duration: 0.3s;
+
+$text-base: #363946;
+$text-base-additional: #878991;
+$text-helper: #ACB1CC;
+$blue: #657BF5;
+$ocean: #5FBCFF;
+
+$input-placeholder: #9BA7BF;
+
+$gradient-semiblue: linear-gradient(99deg, #4A7DFF 4.54%, #7EA0F7 99.07%);
+
+$text-color: $text-base;
+
+$body-bg: #fff;
+
+$container-inner-width: 1240px;
+$container-padding-x: 80px;
+$container-padding-x-tablet: 24px;
+$container-padding-x-mobile: 16px;
+
+$container-max-width: calc(#{$container-inner-width} + 2*#{$container-padding-x});
+$tablet-max-width: 1023px;
+$mobile-max-width: 767px;

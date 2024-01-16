@@ -1,0 +1,49 @@
+.footer {
+    padding-top: 48px;
+    padding-bottom: 32px;
+    &-top,
+    &-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-bottom {
+        margin-top: 32px;
+        line-height: 1.5;
+        border-top: 1px solid $text-helper;
+        padding-top: 32px;
+    }
+
+    .menu {
+        margin-left: 72px;
+        line-height: 1.5;
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        li {
+            &:not(:last-child) {
+                margin-right: 36px;
+            }
+        }
+    }
+
+    .email {
+        margin-left: auto;
+        line-height: 1.5;
+        color: $blue;
+        text-decoration: underline;
+    }
+    .btn {
+        margin-left: 46px;
+    }
+
+    .copyright {
+        margin-right: auto;
+    }
+
+    .policy {
+        margin-left: 36px;
+    }
+}

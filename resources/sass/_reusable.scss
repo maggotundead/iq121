@@ -1,0 +1,54 @@
+.page-title {
+    font-family: $title-font;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    @include mobile {
+        font-size: 30px;
+    }
+}
+
+.block-title {
+    font-family: $title-font;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    @include mobile {
+        font-size: 30px;
+    }
+
+    + .title-descr {
+        margin-top: 16px;
+    }
+}
+
+.title-descr {
+    font-size: 18px;
+    display: block;
+    line-height: 1.3333;
+    font-weight: 400;
+    text-align: center;
+}
+
+.btn {
+    height: 56px;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-left: 48px;
+    padding-right: 48px;
+    border-radius: 56px;
+    background: linear-gradient(99deg, #4A7DFF 4.54%, #7EA0F7 99.07%);
+    font-size: 16px;
+    min-width: 195px;
+    color: #fff;
+    @include mobile {
+        height: 50px;
+    }
+    &[disabled] {
+        background-color: $text-base-additional;
+    }
+}

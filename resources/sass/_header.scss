@@ -1,0 +1,47 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(#fff, .2);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(#fff, .4);
+
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu {
+        margin-left: 72px;
+        line-height: 1.5;
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        li {
+            &:not(:last-child) {
+                margin-right: 36px;
+            }
+        }
+    }
+
+    .email {
+        margin-left: auto;
+        line-height: 1.5;
+        color: $blue;
+        text-decoration: underline;
+    }
+    .btn {
+        margin-left: 46px;
+    }
+}
+
+.burger-btn {
+    display: none;
+}
