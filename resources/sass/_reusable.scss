@@ -4,8 +4,20 @@
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
+    @include responsive {
+        font-size: 48px;
+    }
+    @include tablet {
+        font-size: 36px;
+    }
     @include mobile {
         font-size: 30px;
+    }
+    + .title-descr {
+        margin-top: 16px;
+        @include mobile {
+            margin-top: 12px;
+        }
     }
 }
 
@@ -15,12 +27,21 @@
     font-weight: 500;
     line-height: 1.2;
     text-align: center;
+    @include responsive {
+        font-size: 40px;
+    }
+    @include tablet {
+        font-size: 36px;
+    }
     @include mobile {
         font-size: 30px;
     }
 
     + .title-descr {
         margin-top: 16px;
+        @include mobile {
+            margin-top: 12px;
+        }
     }
 }
 
@@ -30,6 +51,10 @@
     line-height: 1.3333;
     font-weight: 400;
     text-align: center;
+    @include mobile {
+        font-size: 14px;
+        line-height: 1.71429;
+    }
 }
 
 .btn {

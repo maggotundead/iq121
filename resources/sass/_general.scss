@@ -25,6 +25,9 @@ body {
     line-height: normal;
     color: $text-color;
     background-color: $body-bg;
+    @include tablet {
+        font-size: 14px;
+    }
 }
 
 a {
