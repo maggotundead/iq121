@@ -439,6 +439,7 @@
             transition: $duration;
             background: radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(166, 165, 255, 0.20) 0%, rgba(110, 148, 244, 0.04) 77.08%, rgba(70, 76, 212, 0.00) 100%);
             backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
             z-index: 2;
             height: calc(100% - 16px);
             border-radius: 32px 32px 0 0;

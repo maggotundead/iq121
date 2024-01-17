@@ -909,6 +909,7 @@ video {
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
   .header .container {
     padding-top: 20px;
@@ -1468,6 +1469,7 @@ video {
       transition: 0.3s;
       background: radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(166, 165, 255, 0.2) 0%, rgba(110, 148, 244, 0.04) 77.08%, rgba(70, 76, 212, 0) 100%);
       backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
       z-index: 2;
       height: calc(100% - 16px);
       border-radius: 32px 32px 0 0;
@@ -2037,15 +2039,15 @@ video {
     @media screen and (max-width: 767px) {
       .footer .copyright {
         display: none; } }
-  .footer .policy:nth-child(2) {
+  @media screen and (max-width: 767px) {
+    .footer .policy:nth-child(2) {
+      margin-right: 40px; } }
+  .footer .policy:nth-child(3) {
     margin-left: 36px; }
     @media screen and (max-width: 767px) {
-      .footer .policy:nth-child(2) {
+      .footer .policy:nth-child(3) {
         margin-left: 0;
-        margin-right: 40px; } }
-  @media screen and (max-width: 767px) {
-    .footer .policy:nth-child(3) {
-      margin-right: auto; } }
+        margin-right: auto; } }
 
 .modal {
   opacity: 0;

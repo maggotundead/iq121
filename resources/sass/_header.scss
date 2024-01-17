@@ -6,6 +6,7 @@
     z-index: 10;
     background-color: rgba(#fff, .2);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(#fff, .4);
 
     .container {
