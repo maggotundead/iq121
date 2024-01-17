@@ -83,6 +83,7 @@
             width: 100%;
             position: absolute;
             // animation-duration: 4s;
+            animation-duration: 8s;
             animation-timing-function: ease-in-out;
             animation-iteration-count: infinite;
             &:nth-child(1) {
@@ -536,6 +537,10 @@
     padding-top: 96px;
     padding-bottom: 96px;
     background: #F9FBFD;
+    @include mobile {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
 
     .slider {
         margin-top: 64px;
@@ -543,22 +548,39 @@
         grid-template-columns: 1fr 1fr;
         grid-gap: 36px;
         align-items: center;
+        @include mobile {
+            margin-top: 48px;
+            grid-gap: initial;
+            grid-template-columns: 1fr;
+        }
     }
 
     .tab-selectors {
         padding-left: 6px;
+        @include mobile {
+            padding-left: 4px;
+        }
     }
     .tab-selector {
         padding-left: 92px;
         position: relative;
+        cursor: pointer;
+        @include mobile {
+            padding-left: 56px;
+        }
         &:not(:last-child) {
             &::after {
-                top: 19px; // 13 + 12/2
-                bottom: -83px; // 64 + 13 + 12/2
                 width: 2px;
+                top: 19px; // 13 + 12/2
                 left: 27px;
+                bottom: -83px; // 64 + 13 + 12/2
                 background: rgba($text-helper, .2);
                 z-index: 1;
+                @include mobile {
+                    top: 13px; // 7 + 12/2
+                    left: 15px;
+                    bottom: -49px; // 36 + 7 + 12/2
+                }
             }
         }
         &:not(:last-child) {
@@ -568,6 +590,7 @@
             }
         }
         &.active {
+            pointer-events: none;
             &::before {
                 width: 56px;
                 height: 56px;
@@ -575,12 +598,23 @@
                 background-repeat: no-repeat;
                 left: 0;
                 top: -7px;
+                // background-size: 24px 24px;
+                @include mobile {
+                    width: 32px;
+                    height: 32px;
+                    // background-size: 14px 14px;
+                }
             }
             &:nth-child(1) {
                 &::before {
                     background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C15.866 2 19 5.13401 19 9C19 9.11351 18.9973 9.22639 18.992 9.33857C21.3265 10.16 23 12.3846 23 15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15C1 12.3846 2.67346 10.16 5.00804 9.33857C5.0027 9.22639 5 9.11351 5 9C5 5.13401 8.13401 2 12 2ZM12 4C9.23858 4 7 6.23858 7 9C7 9.08147 7.00193 9.16263 7.00578 9.24344L7.07662 10.7309L5.67183 11.2252C4.0844 11.7837 3 13.2889 3 15C3 17.2091 4.79086 19 7 19H17C19.2091 19 21 17.2091 21 15C21 12.79 19.21 11 17 11C15.233 11 13.7337 12.1457 13.2042 13.7347L11.3064 13.1021C12.1005 10.7185 14.35 9 17 9C17 6.23858 14.7614 4 12 4Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
                     background-position: center;
                     background-repeat: no-repeat;
+                    @include mobile {
+                        background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C15.866 2 19 5.13401 19 9C19 9.11351 18.9973 9.22639 18.992 9.33857C21.3265 10.16 23 12.3846 23 15C23 18.3137 20.3137 21 17 21H7C3.68629 21 1 18.3137 1 15C1 12.3846 2.67346 10.16 5.00804 9.33857C5.0027 9.22639 5 9.11351 5 9C5 5.13401 8.13401 2 12 2ZM12 4C9.23858 4 7 6.23858 7 9C7 9.08147 7.00193 9.16263 7.00578 9.24344L7.07662 10.7309L5.67183 11.2252C4.0844 11.7837 3 13.2889 3 15C3 17.2091 4.79086 19 7 19H17C19.2091 19 21 17.2091 21 15C21 12.79 19.21 11 17 11C15.233 11 13.7337 12.1457 13.2042 13.7347L11.3064 13.1021C12.1005 10.7185 14.35 9 17 9C17 6.23858 14.7614 4 12 4Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
                 }
             }
             &:nth-child(2) {
@@ -588,6 +622,11 @@
                     background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.581 2.14L12.316 0.0509967C12.1109 -0.0173244 11.8891 -0.0173244 11.684 0.0509967L5.419 2.14C4.42291 2.47088 3.55642 3.10725 2.94265 3.95871C2.32887 4.81016 1.99904 5.83338 2 6.883V12C2 19.563 11.2 23.74 11.594 23.914C11.7218 23.9708 11.8601 24.0001 12 24.0001C12.1399 24.0001 12.2782 23.9708 12.406 23.914C12.8 23.74 22 19.563 22 12V6.883C22.001 5.83338 21.6711 4.81016 21.0574 3.95871C20.4436 3.10725 19.5771 2.47088 18.581 2.14ZM20 12C20 17.455 13.681 21.033 12 21.889C10.317 21.036 4 17.469 4 12V6.883C4.00006 6.25327 4.19828 5.63954 4.56657 5.12874C4.93486 4.61794 5.45455 4.23599 6.052 4.037L12 2.054L17.948 4.037C18.5455 4.23599 19.0651 4.61794 19.4334 5.12874C19.8017 5.63954 19.9999 6.25327 20 6.883V12Z' fill='white'/%3E%3Cpath d='M15.2988 8.2991L11.1108 12.4991L8.86682 10.1591C8.77676 10.0606 8.66791 9.98119 8.54668 9.92545C8.42544 9.8697 8.29428 9.83878 8.16091 9.83451C8.02755 9.83024 7.89467 9.8527 7.77012 9.90058C7.64557 9.94845 7.53186 10.0208 7.43569 10.1133C7.33952 10.2058 7.26283 10.3166 7.21015 10.4392C7.15747 10.5618 7.12985 10.6937 7.12893 10.8271C7.12801 10.9605 7.1538 11.0928 7.20479 11.2161C7.25578 11.3394 7.33093 11.4513 7.42582 11.5451L9.73182 13.9451C9.90379 14.1309 10.1117 14.2798 10.3428 14.3829C10.574 14.4861 10.8237 14.5412 11.0768 14.5451H11.1098C11.3579 14.5459 11.6036 14.4975 11.8328 14.4025C12.062 14.3076 12.27 14.1681 12.4448 13.9921L16.7168 9.7201C16.8101 9.62699 16.8842 9.51642 16.9347 9.39469C16.9853 9.27297 17.0114 9.14247 17.0116 9.01066C17.0117 8.87885 16.9859 8.7483 16.9356 8.62646C16.8852 8.50463 16.8114 8.3939 16.7183 8.3006C16.6252 8.20729 16.5146 8.13324 16.3929 8.08267C16.2712 8.0321 16.1407 8.006 16.0089 8.00586C15.8771 8.00572 15.7465 8.03155 15.6247 8.08186C15.5028 8.13217 15.3921 8.20599 15.2988 8.2991Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
                     background-position: center;
                     background-repeat: no-repeat;
+                    @include mobile {
+                        background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.581 2.14L12.316 0.0509967C12.1109 -0.0173244 11.8891 -0.0173244 11.684 0.0509967L5.419 2.14C4.42291 2.47088 3.55642 3.10725 2.94265 3.95871C2.32887 4.81016 1.99904 5.83338 2 6.883V12C2 19.563 11.2 23.74 11.594 23.914C11.7218 23.9708 11.8601 24.0001 12 24.0001C12.1399 24.0001 12.2782 23.9708 12.406 23.914C12.8 23.74 22 19.563 22 12V6.883C22.001 5.83338 21.6711 4.81016 21.0574 3.95871C20.4436 3.10725 19.5771 2.47088 18.581 2.14ZM20 12C20 17.455 13.681 21.033 12 21.889C10.317 21.036 4 17.469 4 12V6.883C4.00006 6.25327 4.19828 5.63954 4.56657 5.12874C4.93486 4.61794 5.45455 4.23599 6.052 4.037L12 2.054L17.948 4.037C18.5455 4.23599 19.0651 4.61794 19.4334 5.12874C19.8017 5.63954 19.9999 6.25327 20 6.883V12Z' fill='white'/%3E%3Cpath d='M15.2988 8.2991L11.1108 12.4991L8.86682 10.1591C8.77676 10.0606 8.66791 9.98119 8.54668 9.92545C8.42544 9.8697 8.29428 9.83878 8.16091 9.83451C8.02755 9.83024 7.89467 9.8527 7.77012 9.90058C7.64557 9.94845 7.53186 10.0208 7.43569 10.1133C7.33952 10.2058 7.26283 10.3166 7.21015 10.4392C7.15747 10.5618 7.12985 10.6937 7.12893 10.8271C7.12801 10.9605 7.1538 11.0928 7.20479 11.2161C7.25578 11.3394 7.33093 11.4513 7.42582 11.5451L9.73182 13.9451C9.90379 14.1309 10.1117 14.2798 10.3428 14.3829C10.574 14.4861 10.8237 14.5412 11.0768 14.5451H11.1098C11.3579 14.5459 11.6036 14.4975 11.8328 14.4025C12.062 14.3076 12.27 14.1681 12.4448 13.9921L16.7168 9.7201C16.8101 9.62699 16.8842 9.51642 16.9347 9.39469C16.9853 9.27297 17.0114 9.14247 17.0116 9.01066C17.0117 8.87885 16.9859 8.7483 16.9356 8.62646C16.8852 8.50463 16.8114 8.3939 16.7183 8.3006C16.6252 8.20729 16.5146 8.13324 16.3929 8.08267C16.2712 8.0321 16.1407 8.006 16.0089 8.00586C15.8771 8.00572 15.7465 8.03155 15.6247 8.08186C15.5028 8.13217 15.3921 8.20599 15.2988 8.2991Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
                 }
             }
             &:nth-child(3) {
@@ -595,12 +634,28 @@
                     background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 12.552 23.552 13 23 13H1C0.448 13 0 12.552 0 12C0 11.448 0.448 11 1 11H23C23.552 11 24 11.448 24 12ZM7 22H5C3.346 22 2 20.654 2 19V17C2 16.448 1.552 16 1 16C0.448 16 0 16.448 0 17V19C0 21.757 2.243 24 5 24H7C7.552 24 8 23.552 8 23C8 22.448 7.552 22 7 22ZM23 16C22.448 16 22 16.448 22 17V19C22 20.654 20.654 22 19 22H17C16.448 22 16 22.448 16 23C16 23.552 16.448 24 17 24H19C21.757 24 24 21.757 24 19V17C24 16.448 23.552 16 23 16ZM19 0H17C16.448 0 16 0.448 16 1C16 1.552 16.448 2 17 2H19C20.654 2 22 3.346 22 5V7C22 7.552 22.448 8 23 8C23.552 8 24 7.552 24 7V5C24 2.243 21.757 0 19 0ZM1 8C1.552 8 2 7.552 2 7V5C2 3.346 3.346 2 5 2H7C7.552 2 8 1.552 8 1C8 0.448 7.552 0 7 0H5C2.243 0 0 2.243 0 5V7C0 7.552 0.448 8 1 8Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
                     background-position: center;
                     background-repeat: no-repeat;
+                    @include mobile {
+                        background: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12C24 12.552 23.552 13 23 13H1C0.448 13 0 12.552 0 12C0 11.448 0.448 11 1 11H23C23.552 11 24 11.448 24 12ZM7 22H5C3.346 22 2 20.654 2 19V17C2 16.448 1.552 16 1 16C0.448 16 0 16.448 0 17V19C0 21.757 2.243 24 5 24H7C7.552 24 8 23.552 8 23C8 22.448 7.552 22 7 22ZM23 16C22.448 16 22 16.448 22 17V19C22 20.654 20.654 22 19 22H17C16.448 22 16 22.448 16 23C16 23.552 16.448 24 17 24H19C21.757 24 24 21.757 24 19V17C24 16.448 23.552 16 23 16ZM19 0H17C16.448 0 16 0.448 16 1C16 1.552 16.448 2 17 2H19C20.654 2 22 3.346 22 5V7C22 7.552 22.448 8 23 8C23.552 8 24 7.552 24 7V5C24 2.243 21.757 0 19 0ZM1 8C1.552 8 2 7.552 2 7V5C2 3.346 3.346 2 5 2H7C7.552 2 8 1.552 8 1C8 0.448 7.552 0 7 0H5C2.243 0 0 2.243 0 5V7C0 7.552 0.448 8 1 8Z' fill='white'/%3E%3C/svg%3E%0A"), $gradient-semiblue;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+            .tab-selector-content-mobile {
+                @include mobile {
+                    display: block;
                 }
             }
             .tab-selector-descr {
                 margin-top: 16px;
                 font-size: 18px;
                 opacity: 1;
+                @include tablet {
+                    font-size: 16px;
+                }
+                @include mobile {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -614,15 +669,28 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            left: 22px;
             top: 13px;
+            left: 22px;
             background: $gradient-semiblue;
             z-index: 2;
+            @include mobile {
+                top: 7px;
+                left: 10px;
+            }
         }
 
         &-title {
             font-size: 32px;
             line-height: 1.2;
+            @include responsive {
+                font-size: 28px;
+            }
+            @include tablet {
+                font-size: 24px;
+            }
+            @include mobile {
+                font-size: 22px;
+            }
             span {
                 background: $gradient-semiblue;
                 background-clip: text;
@@ -642,9 +710,12 @@
         &-content-mobile {
             display: none;
             @include mobile {
+                // display: block;
                 margin-top: 24px;
-                display: block;
                 padding-bottom: 12px;
+            }
+            img {
+                max-width: 100%;
             }
         }
     }
@@ -678,10 +749,16 @@
 
 .block-cta {
     padding-top: 88px;
+    @include mobile {
+        padding-top: 48px;
+    }
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 36px;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
     .bg {
         position: absolute;
@@ -695,6 +772,17 @@
         align-items: flex-end;
         justify-content: flex-end;
         padding-right: 55px;
+        @include mobile {
+            padding-right: 0;
+            top: 0;
+            left: $container-padding-x-mobile;
+            right: $container-padding-x-mobile;
+            border-radius: 20px;
+        }
+        img {
+            width: 520px;
+            height: 230px;
+        }
     }
     .cta-text {
         padding-top: 180px;
@@ -702,19 +790,37 @@
         color: #fff;
         max-width: 502px;
         position: relative;
+        @include mobile {
+            padding: 48px 16px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         p {
             margin-top: 16px;
             max-width: 464px;
             font-weight: 400;
             line-height: 1.5;
             font-size: 18px;
+            @include tablet {
+                font-size: 16px;
+            }
+            @include mobile {
+                font-size: 14px;
+            }
         }
     }
     .block-title {
         text-align: left;
+        @include mobile {
+            text-align: center;
+        }
     }
     .title-descr {
         text-align: left;
+        @include mobile {
+            text-align: center;
+        }
     }
     .btn {
         margin-top: 36px;
@@ -725,6 +831,10 @@
         position: relative;
         display: flex;
         align-items: flex-end;
+        @include mobile {
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+        }
         img {
             width: 100%;
         }
@@ -734,10 +844,29 @@
 .block-mission {
     padding-top: 156px;
     padding-bottom: 156px;
+    @include responsive {
+        padding-bottom: 120px;
+        padding-bottom: 120px;
+    }
+    @include tablet {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    @include mobile {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 36px;
+        @include tablet {
+            grid-gap: 24px;
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+            grid-gap: 32px;
+        }
     }
     .text-col {
         h2 {
@@ -745,6 +874,13 @@
             font-weight: 400;
             line-height: 1.5;
             max-width: 320px;
+            @include tablet {
+                font-size: 16px;
+            }
+            @include mobile {
+                font-size: 14px;
+                max-width: 235px;
+            }
         }
         p {
             margin-top: 20px;
@@ -752,6 +888,16 @@
             font-size: 32px;
             line-height: 1.5;
             max-width: 514px;
+            @include responsive {
+                font-size: 28px;
+            }
+            @include tablet {
+                font-size: 24px;
+            }
+            @include mobile {
+                margin-top: 16px;
+                font-size: 22px;
+            }
         }
         span {
             color: $blue;
@@ -761,12 +907,28 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 36px;
+        @include responsive {
+            grid-gap: 32px;
+        }
+        @include tablet {
+            row-gap: 16px;
+            column-gap: 20px;
+        }
     }
 
     .gallery-item {
         border-radius: 32px;
         overflow: hidden;
         position: relative;
+        @include responsive {
+            border-radius: 28px;
+        }
+        @include tablet {
+            border-radius: 24px;
+        }
+        @include mobile {
+            border-radius: 20px;
+        }
         &::after {
             content: '';
             position: absolute;
@@ -793,6 +955,10 @@
     padding-top: 96px;
     padding-bottom: 96px;
     position: relative;
+    @include mobile {
+        padding-top: 48px;
+        padding-bottom: 56px;
+    }
     &::before {
         content: '';
         position: absolute;
@@ -819,6 +985,9 @@
         margin: 48px auto 0;
         width: 100%;
         max-width: 605px;
+        @include mobile {
+            margin: 32px auto 0;
+        }
     }
 
     .faq-item {
@@ -826,6 +995,9 @@
         padding-bottom: 16px;
         position: relative;
         cursor: pointer;
+        @include mobile {
+            padding-bottom: 12px;
+        }
 
         &:not(:first-child) {
             padding-top: 16px;

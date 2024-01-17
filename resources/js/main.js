@@ -7,6 +7,8 @@ const mobileCheck = () => {
     return check;
 };
 
+console.log(mobileCheck());
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -108,7 +110,9 @@ if (blockApp) {
     }
 
     tabSelectors.forEach( (btn, btnIndex) => btn.addEventListener('click', () => {
+        tabSelectors.forEach(btn => btn.classList.remove('active'));
         currentSlideIndex = btnIndex;
+        btn.classList.add('active');
         !mobileCheck() && updateDesktopFigure();
     }));
 
@@ -193,8 +197,10 @@ if (cookie_consent != '') {
 
 
 document.querySelectorAll('[data-modal-join="open"]').forEach(btn => {
-    btn.addEventListener('click', () => joinModal.classList.add('active'));
-    document.body.classList.contains('mobile-menu-open') && document.body.classList.remove('mobile-menu-open');
+    btn.addEventListener('click', () => {
+        joinModal.classList.add('active');
+        document.body.classList.contains('mobile-menu-open') && document.body.classList.remove('mobile-menu-open');
+    });
 });
 document.querySelectorAll('[data-modal-action="close"]').forEach(btn => {
     btn.addEventListener('click', () => btn.closest('.modal').classList.remove('active'));

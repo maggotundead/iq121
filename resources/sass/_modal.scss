@@ -11,6 +11,12 @@
     align-items: center;
     justify-content: center;
     z-index: 100;
+    @include tablet {
+        padding: $container-padding-x-tablet;
+    }
+    @include mobile {
+        padding: $container-padding-x-mobile;
+    }
     &.active {
         opacity: 1;
         pointer-events: auto;
@@ -36,6 +42,10 @@
         right: 20px;
         color: $blue;
         cursor: pointer;
+        @include mobile {
+            top: 16px;
+            right: 16px;
+        }
     }
     &-content {
         display: flex;
@@ -45,6 +55,9 @@
         padding: 48px;
         border-radius: 20px;
         background-color: #fff;
+        @include mobile {
+            padding: 32px 16px;
+        }
     }
     &-title {
         &:not(:first-child) {
@@ -56,6 +69,9 @@
         line-height: 1.5;
         font-weight: 400;
         text-align: center;
+        @include mobile {
+            margin-top: 12px;
+        }
 
         + .btn {
             margin-top: 36px;
@@ -66,10 +82,16 @@
         display: flex;
         max-width: 520px;
         width: 100%;
-
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+        }
         .input-wrapper {
             flex-grow: 1;
             position: relative;
+            @include mobile {
+                width: 100%;
+            }
             &::before {
                 content: '';
                 position: absolute;
@@ -100,6 +122,10 @@
             background: $text-base-additional;
             margin-left: 16px;
             height: 50px;
+            @include mobile {
+                margin-left: 0;
+                margin-top: 24px;
+            }
         }
     }
 }
@@ -111,6 +137,9 @@
     .modal-content {
         padding: 56px 48px;
         align-items: center;
+        @include mobile {
+            padding: 32px 16px;
+        }
     }
 }
 
@@ -121,6 +150,9 @@
     .modal-content {
         padding: 56px 48px;
         align-items: center;
+        @include mobile {
+            padding: 32px 16px;
+        }
     }
     .modal-title-descr {
         max-width: 445px;
@@ -129,8 +161,11 @@
 
 #cookie-modal {
     padding: 32px;
+    @include tablet {
+        padding: $container-padding-x-tablet;
+    }
     @include mobile {
-        padding: 12px;
+        padding: $container-padding-x-mobile;
     }
     .modal-body {
         align-self: flex-end;
@@ -139,13 +174,17 @@
     .modal-close {
         right: 0;
         top: -32px;
+        @include mobile {
+            top: 16px;
+            right: 16px;
+        }
     }
     .modal-content {
         padding: 32px;
         flex-direction: row;
         align-items: center;
         @include mobile {
-            padding: 12px;
+            padding: 16px;
             flex-direction: column;
             align-items: flex-end;
         }
@@ -153,6 +192,9 @@
 
     p {
         line-height: 1.5;
+        @include mobile {
+            padding-right: 32px;
+        }
     }
     a {
         color: inherit;
@@ -181,7 +223,7 @@
         margin-left: 24px;
         @include mobile {
             margin-left: 0;
-            margin-top: 24px;
+            margin-top: 16px;
         }
     }
 }
