@@ -2117,6 +2117,8 @@ video {
           margin-top: 21px; } }
   .block-text *:is(b, strong) {
     font-weight: 700; }
+  .block-text a {
+    text-decoration: underline; }
 
 .footer {
   padding-top: 48px;
