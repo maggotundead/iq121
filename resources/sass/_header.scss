@@ -37,6 +37,7 @@
         flex-grow: 1;
         @include tablet {
             margin-left: 32px;
+            font-size: 12px;
         }
         @include mobile {
             position: fixed;
@@ -54,8 +55,9 @@
             pointer-events: none;
             transition: $duration;
             margin-left: 0;
+            font-size: 14px;
         }
-        ul {
+        > ul {
             display: flex;
             align-items: center;
             list-style: none;
@@ -67,7 +69,8 @@
             &:not(:last-child) {
                 margin-right: 36px;
                 @include tablet {
-                    margin-right: 24px;
+                    // margin-right: 24px;
+                    margin-right: 20px;
                 }
                 @include mobile {
                     margin-right: 0;
@@ -76,21 +79,37 @@
             }
             &:has(.email) {
                 margin-left: auto;
-                margin-right: 0;
+                // margin-right: 0;
+                margin-right: 32px;
+                @include tablet {
+                    margin-right: 20px;
+                }
                 @include mobile {
                     margin-left: initial;
+                    margin-right: initial;
                 }
             }
-            &:has(.btn) {
-                margin-left: 45px;
+            &:has(.lang) {
+                margin-right: 24px;
                 @include tablet {
-                    margin-left: 24px;
+                    margin-right: 20px;
                 }
                 @include mobile {
+                    margin-right: 0;
+                    order: 99;
                     margin-top: 24px;
-                    margin-left: 0;
                 }
             }
+            // &:has(.btn) {
+            //     margin-left: 45px;
+            //     @include tablet {
+            //         margin-left: 24px;
+            //     }
+            //     @include mobile {
+            //         margin-top: 24px;
+            //         margin-left: 0;
+            //     }
+            // }
         }
     }
 
@@ -103,6 +122,62 @@
     // .btn {
     //     margin-left: 46px;
     // }
+
+    .lang {
+        position: relative;
+        text-transform: uppercase;
+        &:hover {
+            .lang-current {
+                &::after {
+                    transform: rotate(-180deg);
+                }
+            }
+            .lang-dropdown {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        &-current {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            &::after {
+                content: '';
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath d='M11.9963 15.5002C11.8647 15.5009 11.7342 15.4757 11.6124 15.426C11.4905 15.3762 11.3797 15.3029 11.2863 15.2102L7.28628 11.2102C7.19304 11.1169 7.11908 11.0063 7.06862 10.8844C7.01816 10.7626 6.99219 10.632 6.99219 10.5002C6.99219 10.3683 7.01816 10.2378 7.06862 10.1159C7.11908 9.99411 7.19304 9.88342 7.28628 9.79018C7.37952 9.69695 7.49021 9.62299 7.61203 9.57253C7.73385 9.52206 7.86442 9.49609 7.99628 9.49609C8.12814 9.49609 8.25871 9.52206 8.38053 9.57253C8.50235 9.62299 8.61304 9.69695 8.70628 9.79018L11.9963 13.1002L15.2963 9.92019C15.3883 9.8179 15.5004 9.73569 15.6256 9.6787C15.7508 9.62171 15.8864 9.59118 16.024 9.589C16.1615 9.58682 16.2981 9.61304 16.425 9.66603C16.552 9.71903 16.6666 9.79764 16.7618 9.89697C16.857 9.99629 16.9307 10.1142 16.9782 10.2433C17.0258 10.3724 17.0461 10.5099 17.0381 10.6472C17.0301 10.7846 16.9938 10.9188 16.9316 11.0414C16.8693 11.1641 16.7824 11.2726 16.6763 11.3602L12.6763 15.2202C12.4934 15.3965 12.2503 15.4966 11.9963 15.5002Z' fill='%23363946'/%3E%3C/svg%3E%0A");
+                width: 24px;
+                height: 24px;
+                flex-shrink: 0;
+                margin-left: 8px;
+                transition: $duration;
+            }
+        }
+        &-dropdown {
+            padding-top: 8px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transition: $duration;
+            opacity: 0;
+            pointer-events: none;
+            ul {
+                list-style: none;
+                border-radius: 8px;
+                border: 1px solid #7298FA;
+                background: #F9FBFD;
+                padding: 16px;
+                width: 56px;
+            }
+            li {
+                &:not(:last-child) {
+                    margin-bottom: 12px;
+                }
+            }
+            span {
+                font-weight: 700;
+                color: #5181FF;
+            }
+        }
+    }
 }
 
 .burger-btn {

@@ -1048,3 +1048,125 @@
         line-height: 1.5;
     }
 }
+
+.block-text {
+    padding-top: 104px;
+    padding-bottom: 112px;
+    @include mobile {
+        padding-top: 90px;
+        padding-bottom: 64px;
+    }
+
+    .block-head {
+        padding-left: 20px;
+        padding-right: 20px;
+        @include mobile {
+            padding-left: $container-padding-x-mobile;
+            padding-right: $container-padding-x-mobile;
+        }
+        &-inner {
+            width: 100%;
+            border-radius: 32px;
+            background: #F3F3FB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 240px;
+            position: relative;
+            @include responsive {
+                min-height: 200px;
+                border-radius: 28px;
+            }
+            @include tablet {
+                min-height: 160px;
+                border-radius: 24px;
+            }
+            @include mobile {
+                min-height: 120px;
+                border-radius: 20px;
+                background: #F9FBFD;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 80px;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 426 149' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M106.651 71.1045C134.534 71.1045 160.308 81.2772 177.308 99.0533L225.132 149H248.417L190.75 88.7822C170.421 67.5487 139.758 55.3045 106.651 55.3045C47.8803 55.3045 0 94.3113 0 142.209C0 144.49 0.108552 146.75 0.321664 148.987H18.1747C17.9096 146.756 17.7741 144.495 17.7741 142.209C17.7741 103.003 57.6575 71.1045 106.651 71.1045Z' fill='white'/%3E%3Cpath d='M311.064 94.806H333.284C371.29 94.806 402.825 118.394 408.065 149H426C420.699 109.674 381.124 79.006 333.284 79.006H328.841C328.841 35.4539 284.958 0 231.076 0C201.969 0 176.419 10.271 157.089 29.8236L170.421 40.2914C186.307 24.2946 207.303 15.8 231.076 15.8C275.181 15.8 311.064 44.1452 311.064 79.006V94.806Z' fill='white'/%3E%3C/svg%3E%0A");
+                width: 426px;
+                height: 149px;
+                background-size: 100% 100%;
+                @include mobile {
+                    content: none;
+                }
+            }
+        }
+    }
+    h1 {
+        color: #4F80FF;
+        font-family: $title-font;
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 1.2;
+        position: relative;
+        @include responsive {
+            font-size: 42px;
+        }
+        @include tablet {
+            font-size: 36px;
+        }
+        @include mobile {
+            font-size: 30px;
+        }
+    }
+
+    article {
+        padding-top: 72px;
+        width: 100%;
+        max-width: 948px;
+        margin: 0 auto;
+        @include responsive {
+            padding-top: 64px;
+        }
+        @include tablet {
+            padding-top: 48px;
+        }
+        @include mobile {
+            padding-top: 36px;
+        }
+    }
+
+    h2 {
+        font-family: $main-font;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 16px;
+        @include mobile {
+            font-size: 22px;
+        }
+        &:not(:first-child) {
+            margin-top: 36px;
+            @include mobile {
+                margin-top: 32px;
+            }
+        }
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: 400;
+        @include mobile {
+            font-size: 14px;
+        }
+        + p {
+            margin-top: 27px;
+            @include mobile {
+                margin-top: 21px;
+            }
+        }
+    }
+    *:is(b, strong) {
+        font-weight: 700;
+    }
+}
